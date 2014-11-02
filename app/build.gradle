@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 21
     buildToolsVersion "21.0.1"
-
     defaultConfig {
         applicationId "com.example.stevenwoo.appsupporttest"
         minSdkVersion 15

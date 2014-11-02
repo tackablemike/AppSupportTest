@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,18 +14,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    private ProgressBar mProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        mProgressBar = (ProgressBar)toolbar.findViewById(R.id.testProgress);
+
+        setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
+            PlaceholderFragment pf = new PlaceholderFragment();
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, pf)
                     .commit();
+            pf.setProgressBar(mProgressBar);
+
         }
     }
 
@@ -55,7 +64,11 @@ public class MainActivity extends ActionBarActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends android.support.v4.app.Fragment {
+        ProgressBar mProgressBar;
+        public void setProgressBar(ProgressBar inputProgressBar){
+            mProgressBar = inputProgressBar;
 
+        }
         public PlaceholderFragment() {
         }
 
@@ -67,6 +80,7 @@ public class MainActivity extends ActionBarActivity {
             hideButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mProgressBar.setVisibility(View.INVISIBLE);
 
                 }
             });
@@ -74,7 +88,7 @@ public class MainActivity extends ActionBarActivity {
             showButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    mProgressBar.setVisibility(View.VISIBLE);
                 }
             });
             return rootView;
