@@ -16,9 +16,11 @@
         <android.widget.ProgressBar
             android:id="@+id/testProgress"
             android:minHeight="?attr/actionBarSize"
-            android:layout_height="48dp"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/abc_action_bar_progress_bar_size"
+            android:layout_height="@dimen/abc_action_bar_progress_bar_size"
+
             />
+
         </android.support.v7.widget.Toolbar>
 
     </FrameLayout>
