@@ -25,7 +25,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         mProgressBar = (ProgressBar)toolbar.findViewById(R.id.testProgress);
-
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
             PlaceholderFragment pf = new PlaceholderFragment();

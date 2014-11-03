@@ -7,11 +7,16 @@
     tools:ignore="MergeRootFrame" >
 
     <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
         android:id="@+id/my_awesome_toolbar"
         android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
+
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+
     >
         <android.widget.ProgressBar
             android:id="@+id/testProgress"
